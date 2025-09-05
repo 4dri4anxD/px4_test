@@ -302,7 +302,6 @@ else
 		. $FCONFIG
 	fi
 
-
 	#
 	# Sensors System (start before Commander so Preflight checks are properly run).
 	#

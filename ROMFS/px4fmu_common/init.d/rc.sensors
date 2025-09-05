@@ -239,3 +239,46 @@ then
 	# start last (wait for possible icm20948 passthrough mode)
 	ak09916 -X -q start
 fi
+
+# TFMini i2c lidar sensor
+# loops are somehow not working, that's why it's all defined this way :(
+if param greater -s SENS_TFMINI_I2C 0
+then
+	param touch SENS_TFMINI0_ADD
+	param touch SENS_TFMINI1_ADD
+	param touch SENS_TFMINI2_ADD
+	param touch SENS_TFMINI3_ADD
+	param touch SENS_TFMINI4_ADD
+	param touch SENS_TFMINI5_ADD
+	param touch SENS_TFMINI0_ROT
+	param touch SENS_TFMINI1_ROT
+	param touch SENS_TFMINI2_ROT
+	param touch SENS_TFMINI3_ROT
+	param touch SENS_TFMINI4_ROT
+	param touch SENS_TFMINI5_ROT
+
+	if param greater -s SENS_TFMINI0_ADD 0
+	then
+		tfmini_i2c start -A p:SENS_TFMINI0_ADD -R p:SENS_TFMINI0_ROT -X
+	fi
+	if param greater -s SENS_TFMINI1_ADD 0
+	then
+		tfmini_i2c start -A p:SENS_TFMINI1_ADD -R p:SENS_TFMINI1_ROT -X
+	fi
+	if param greater -s SENS_TFMINI2_ADD 0
+	then
+		tfmini_i2c start -A p:SENS_TFMINI2_ADD -R p:SENS_TFMINI2_ROT -X
+	fi
+	if param greater -s SENS_TFMINI3_ADD 0
+	then
+		tfmini_i2c start -A p:SENS_TFMINI3_ADD -R p:SENS_TFMINI3_ROT -X
+	fi
+	if param greater -s SENS_TFMINI4_ADD 0
+	then
+		tfmini_i2c start -A p:SENS_TFMINI4_ADD -R p:SENS_TFMINI4_ROT -X
+	fi
+	if param greater -s SENS_TFMINI5_ADD 0
+	then
+		tfmini_i2c start -A p:SENS_TFMINI5_ADD -R p:SENS_TFMINI5_ROT -X
+	fi
+fi
